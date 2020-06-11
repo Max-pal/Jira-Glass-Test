@@ -14,17 +14,17 @@ public class ProjectPage extends MainPage {
     @FindBy(xpath = "//section[@id='content']//li[6]//a[1]")
     private WebElement componentsButton;
 
-    @FindBy(xpath = "//*[@id=\"components-add__component\"]/div[1]/input")
+    @FindBy(xpath = "//input[@placeholder='Component name']")
     private WebElement componentNameInputField;
 
-    @FindBy(xpath = "//*[@id=\"components-add__component\"]/div[3]/input")
+    @FindBy(xpath = "//input[@placeholder='Description (optional)']")
     private WebElement componentDescriptionInputField;
 
-    @FindBy(xpath = "//*[@id=\"assigneeType-field\"]")
+    @FindBy(xpath = "//input[@id='assigneeType-field']")
     private WebElement componentAssigneeInputField;
 
-    @FindBy(xpath = "//*[@id=\"components-add__component\"]/div[5]/button")
-    private WebElement createComponentButton;
+    @FindBy(xpath = "//div[@class=\"components-add__confirm\"]//button[@class='aui-button aui-button-primary']")
+    private WebElement addComponentButton;
 
     @FindBy(xpath = "//a[@class='component-delete-dialog deletecomponent_link']")
     private WebElement deleteComponentButton;
@@ -51,7 +51,7 @@ public class ProjectPage extends MainPage {
         componentNameInputField.sendKeys(componentName);
         componentDescriptionInputField.sendKeys(componentDescription);
         componentAssigneeInputField.sendKeys(componentAssignee);
-        createComponentButton.click();
+        addComponentButton.click();
     }
 
     public void deleteComponent(){
