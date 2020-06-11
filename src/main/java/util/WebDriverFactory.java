@@ -14,7 +14,7 @@ import org.openqa.selenium.safari.SafariOptions;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class WebDriverFactory {
+public class    WebDriverFactory {
     public static WebDriver InitDriver(String browserName, String gridURL, String gridPassword) throws MalformedURLException {
         WebDriver driver = null;
         switch (browserName) {

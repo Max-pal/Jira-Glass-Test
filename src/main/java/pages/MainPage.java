@@ -47,6 +47,7 @@ public class MainPage extends BasePage {
     }
 
     public void login(String username, String password) {
+        navigateToUrl();
         enterUsername(username);
         enterPassword(password);
         clickLoginButton();
