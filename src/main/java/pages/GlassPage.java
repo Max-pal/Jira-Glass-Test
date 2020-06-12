@@ -4,9 +4,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class GlassPage extends MainPage {
-
+    private static final String componentAssignee = System.getenv("COMPONENT_ASSIGNEE");
     @FindBy(xpath = "//li[@id='glass-workflow-nav']/a")
     private WebElement issueTypes;
     @FindBy(xpath = "//*[@data-issue-type='Improvement']/a")
@@ -25,7 +26,7 @@ public class GlassPage extends MainPage {
     private WebElement versionsTab;
     @FindBy(xpath = "//a[text()='Schemes']")
     private WebElement schemesTab;
-    @FindBy(xpath = "//td[@class='components-table__assignee']//a")
+    @FindBy(xpath = "//td[@class='components-table__name']/following-sibling::td[contains(text(),'Project Lead')]")
     private WebElement assignee;
 
     public GlassPage(WebDriver driver) {
@@ -48,8 +49,8 @@ public class GlassPage extends MainPage {
     }
 
 //    TODO: Add env to xpath
-    public WebElement doesComponentAssigneePresent() {
-        return assignee;
+    public boolean doesComponentAssigneePresent() {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[@class='components-table__name']/following-sibling::td[contains(text(),'Project Lead')]"))).isDisplayed();
     }
 
     public boolean doesComponentDescriptionPresent(){

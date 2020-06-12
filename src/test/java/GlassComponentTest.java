@@ -34,7 +34,7 @@ public class GlassComponentTest extends BaseTest {
     @Test
     public void viewComponentsAssignee() {
         glassPage.navigateToComponentsTab();
-        Assertions.assertTrue(glassPage.doesComponentAssigneePresent().getText().contains(System.getenv("ASSIGNEE")));
+        Assertions.assertTrue(glassPage.doesComponentAssigneePresent());
     }
 
     @Test
